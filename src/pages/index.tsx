@@ -112,10 +112,10 @@ const Home: NextPage = () => {
                     <button 
                         type="submit" 
                         disabled={isLoading} 
-                        className={`border-2 border-zinc-600 rounded-xl p-2 text-sm cursor-pointer transition-colors flex items-center gap-2 ${
+                        className={`border-2 border-zinc-600 rounded-xl p-2 text-sm transition-colors flex items-center gap-2 ${
                             isLoading 
-                                ? 'bg-zinc-700 cursor-not-allowed opacity-50' 
-                                : 'bg-zinc-800 hover:bg-zinc-700'
+                                ? 'bg-zinc-700 cursor-not-allowed opacity-50 cursor-default' 
+                                : 'bg-zinc-800 hover:bg-zinc-700 cursor-pointer'
                         }`}
                     >
                         <FontAwesomeIcon icon={faSearch} />

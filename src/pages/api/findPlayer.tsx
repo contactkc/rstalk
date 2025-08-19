@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 interface FindPlayerRequest {
     gameId: string;
     searchType: 'username' | 'userId';
@@ -135,6 +137,7 @@ export default async function handler(
         let allPlayerTokens: any[] = [];
         let cursor = '';
         let hasMorePages = true;
+        const delay = Math.random() * 1000 + 2300;
 
         while (hasMorePages) {
             const serverListRes = await fetch(`https://games.roblox.com/v1/games/${gameId}/servers/Public?sortOrder=Asc&limit=100&cursor=${cursor}`, {
@@ -144,7 +147,7 @@ export default async function handler(
             });
 
             if (serverListRes.status === 429) {
-                setTimeout(() => {}, 1000);
+                await sleep(delay);
                 continue;
             }
 
@@ -171,7 +174,7 @@ export default async function handler(
             hasMorePages = !!cursor;
 
             if (hasMorePages) {
-                setTimeout(() => {}, 1000);
+                await sleep(delay);
             }
         }
 
