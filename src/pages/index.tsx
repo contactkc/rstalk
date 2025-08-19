@@ -128,8 +128,8 @@ const Home: NextPage = () => {
             <>
                 <h2 className="mb-2 mt-4">result</h2>
                 <div className="">
-                    <p className="mb-2 text-sm">~ status: {result.status}</p>
-                    <p className="mb-2 text-sm">~ result: {result.message}</p>
+                    <p className="mb-2 text-sm text-zinc-400">~ status: {result.status}</p>
+                    <p className="mb-2 text-sm text-zinc-400">~ result: {result.message}</p>
                     {result.playerDetails && (
                         <div className="flex items-center mt-4 pt-4 border-t border-zinc-500">
                             <img src={result.playerDetails.avatarUrl} alt={`${result.playerDetails.username}'s avatar`} className="w-24 h-24 rounded-full mr-5 border-2 border-zinc-300" />
